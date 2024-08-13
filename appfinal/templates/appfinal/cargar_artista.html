@@ -1,0 +1,19 @@
+{% extends 'appfinal/base.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+{% block title %}
+<h1> Formulario para cargar Artistas</h1>
+{% endblock title %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <table>
+            {{ mi_formulario.as_table }}
+        </table>
+        <input type="submit" value="Enviar">
+
+    </form>
+{% endblock contenidoQueCambia %}

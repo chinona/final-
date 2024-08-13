@@ -1,0 +1,11 @@
+{% extends 'appfinal/base.html' %}
+
+{% load static %}
+
+{% block title %} Listado de obras {% endblock title %}
+
+{% block contenidoQueCambia %}
+    {% for obra in obras %}
+    <p> Nombre: {{obra.nombre}} | técnica: {{obra.tecnica}} | año: {{obra.año}} | dimensiones: {{obra.dimensiones}} | temática: {{obra.tematica}} </p>
+    {% endfor %}
+{% endblock contenidoQueCambia %}
