@@ -26,14 +26,26 @@
                 <a class="navbar-brand" href="{% url 'listar' %}">Obras</a>
                 <a class="navbar-brand" href="{% url 'cargar_artista' %}"> Cargar Artista</a>
                 <a class="navbar-brand" href="{% url 'acerca_de_mi' %}">Acerca de mi</a>
+                <div class="dropdown">
+                    {% if request.usuarios.is_authenticate %}
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{request.user.username}}
+                        </button>
+                    {% else %}
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Cuenta
+                        </button>
+                    {% endif %}
+                    <ul class="dropdown-menu">
+                        {% if request.usuarios.is_authenticate %}
+                            <li><a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="btn btn-primary" href="{% url 'Login' %}">Login</a></li>
+                                <li><a class="btn btn-primary" href="{% url 'Register' %}">Register</a></li>
+                            {% endif %}
+                    </ul>
+                </div>
             </div>
-
-                {% if request.usuarios.is_authenticate %}
-                    <a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a>
-                {% else %}
-                <a class="btn btn-primary" href="{% url 'Register' %}">Register</a>
-                <a class="btn btn-primary" href="{% url 'Login' %}">Login</a>
-                {% endif %}
         </nav>
         <!-- Masthead-->
         <header class="masthead">
