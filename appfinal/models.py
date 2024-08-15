@@ -21,3 +21,4 @@ class Obras(models.Model):
 class Acerca_de_mi(models.Model):
     nombre= models.CharField(max_length= 50, null= True)
 
+

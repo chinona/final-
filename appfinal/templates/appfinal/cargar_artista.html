@@ -7,7 +7,7 @@
 {% block title %}
 <h1> Formulario para cargar Artistas</h1>
 {% endblock title %}
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         
         <table>
