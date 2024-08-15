@@ -1,0 +1,28 @@
+{% extends 'appfinal/base.html' %}
+
+{% load static %}
+
+{% block title %} Editar perfil {% endblock title %}
+
+{% block contenidoQueCambia %}
+
+    {# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
+    <div class="d-flex justify-content-center">
+
+        {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
+        <div class="d-flex flex-column">
+
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+
+                <input type="submit" value="Actualizar">
+
+            </form>
+
+        </div>
+    </div>
+{% endblock contenidoQueCambia %}

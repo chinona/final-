@@ -6,4 +6,8 @@
 {% load static %}
 <h1>Bienvenido a ArteApp</h1>
 
+{% if request.user.is_authenticated %}
+<h2> Bienvenido {{user}} </h2>
+{% endif %}
+
 {% endblock contenidoQueCambia %}

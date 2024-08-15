@@ -26,23 +26,26 @@
                 <a class="navbar-brand" href="{% url 'listar' %}">Obras</a>
                 <a class="navbar-brand" href="{% url 'cargar_artista' %}"> Cargar Artista</a>
                 <a class="navbar-brand" href="{% url 'acerca_de_mi' %}">Acerca de mi</a>
+
+                <img src="{{request.user.avatar.imagen.url}}" alt="" height="40px">
                 <div class="dropdown">
                     {% if request.usuarios.is_authenticate %}
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{request.user.username}}
                         </button>
                     {% else %}
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Cuenta
                         </button>
                     {% endif %}
                     <ul class="dropdown-menu">
-                        {% if request.usuarios.is_authenticate %}
+                        {% if request.user.is_authenticated %}
                             <li><a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a></li>
-                            {% else %}
-                                <li><a class="btn btn-primary" href="{% url 'Login' %}">Login</a></li>
-                                <li><a class="btn btn-primary" href="{% url 'Register' %}">Register</a></li>
-                            {% endif %}
+                            <li><a class="btn btn-primary" href="{% url 'EditarPerfil' %}">Editar Perfil</a></li>
+                        {% else %}
+                            <li><a class="btn btn-primary" href="{% url 'Login' %}">Login</a></li>
+                            <li><a class="btn btn-primary" href="{% url 'Register' %}">Crear cuenta</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

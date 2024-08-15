@@ -1,0 +1,28 @@
+{% extends 'appfinal/base.html' %}
+
+{% load static %}
+
+{% block title %} Editar contraseña {% endblock title %}
+
+{% block contenidoQueCambia %}
+
+    {# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
+    <div class="d-flex justify-content-center">
+
+        {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
+        <div class="d-flex flex-column">
+
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form }}
+                </table>
+                <a class= "btn btn primary" href="{% url 'CambiarContraseña' %}">Cambiar pass<a>
+                <input type="submit" value="Actualizar">
+
+            </form>
+
+        </div>
+    </div>
+{% endblock contenidoQueCambia %}

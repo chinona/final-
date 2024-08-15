@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 
 class UserRegisterForm(UserCreationForm):
@@ -14,3 +14,14 @@ class UserRegisterForm(UserCreationForm):
         # Si queremos EDIAR los mensajes de ayuda editamos este dict,
             # de lo contrario lo limpiamos de ésta forma.
         help_text = {k: "" for k in fields}
+
+class UserEditForm(UserChangeForm):
+    username= forms.CharField(label="ingrese su usuario")
+    password= None
+    email= forms.EmailField(label="ingrese su email")
+    imagen= forms.ImageField(label="Avatar", required= False)
+
+
+    class Meta:
+        model= User
+        fields= {"email", "password", "username"}
