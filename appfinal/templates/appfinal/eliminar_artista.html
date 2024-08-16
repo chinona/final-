@@ -1,0 +1,9 @@
+
+<body>
+    {% for a in artistas %}
+        <li>{{p}}</li>  
+        <button>
+            <a href="{% url 'EliminarArtista' a.nombre %}"> Eliminar</a>
+        </button>
+    {% endfor %}
+</body>

@@ -35,7 +35,6 @@ def login_request(request):
 
 
 def register(request):
-
     msg_register = ""
     if request.method == 'POST':
 
@@ -50,6 +49,9 @@ def register(request):
 
     form = UserRegisterForm()     
     return render(request,"usuarios/registro.html" ,  {"form":form, "msg_register": msg_register})
+    
+
+
 
 @login_required
 def editar_perfil(request):

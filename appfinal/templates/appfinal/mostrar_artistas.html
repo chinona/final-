@@ -1,0 +1,22 @@
+{% extends 'appfinal/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio Artistas {% endblock title %}
+
+{% block contenidoQueCambia %}
+
+
+{% for artista in artistas %}
+    <li>
+        Nombre: {{artista.nombre}} 
+        Provincia: {{artista.provincia}}
+        Descripcion: {{artista.descripcion}}
+        Mail del artista: {{artista.mail_artista}}
+        Pagina web o redes sociales: {{artista.pagina_web_redes_sociales}}
+        Imagenes {{artista.imagenes}}
+    </li>
+{% endfor %}
+
+
+{% endblock contenidoQueCambia %}

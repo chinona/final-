@@ -1,0 +1,17 @@
+{% extends 'appfinal/base.html' %}
+
+{% load static %}
+
+{% block title %} Inicio Obras {% endblock title %}
+
+{% block contenidoQueCambia %}
+
+
+{% for obra in obras %}
+    <li>
+        Nombre: {{obra.nombre}} | autor: {{obra.autor}} | técnica: {{obra.técnica}} | año: {{obra.año}} | dimensiones: {{obra.dimensiones}} | temática: {{obra.tematica}} imagenes: {{obra.imagenes}}
+    </li>
+{% endfor %}
+
+
+{% endblock contenidoQueCambia %}

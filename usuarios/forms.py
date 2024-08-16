@@ -15,6 +15,9 @@ class UserRegisterForm(UserCreationForm):
             # de lo contrario lo limpiamos de ésta forma.
         help_text = {k: "" for k in fields}
 
+    def __str__(self):
+        return f"username:{self.username} - email:{self.email} - password1:{self.password1}"
+
 class UserEditForm(UserChangeForm):
     username= forms.CharField(label="ingrese su usuario")
     password= None
